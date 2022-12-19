@@ -65,7 +65,7 @@ return {data,err:(sumError || sumErrorPrev),centers}
 }
 export function getBestOne(num,daTa){
   let arr=[{err:1000}]
-  for (let i=0;i<10;i++){
+  for (let i=0;i<100;i++){
     const res=getSpread(num,JSON.parse(JSON.stringify(daTa)))
 if (arr[0].err>res.err) arr[0]=res
   }
