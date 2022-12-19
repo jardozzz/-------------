@@ -1,6 +1,8 @@
 import { getBestOne } from "./script.js";
 import { Data as LiveData }  from "./LiveData.js";
 import { prematchData } from "./Prematch_new.js";
+import { pregame_old } from "./pregame_old.js";
+import { live_old } from "./lv_old.js";
 const elems=document.getElementsByClassName('count')
 console.log(elems)
 Array.from(elems).forEach(function(elem) {
@@ -9,8 +11,16 @@ Array.from(elems).forEach(function(elem) {
       const res=getBestOne(Number(elem.dataset.count),LiveData)
       showResult(res)
     }
-    else {
+    else if(elem.dataset.type==="pregame"){
       const res=getBestOne(Number(elem.dataset.count),prematchData)
+      showResult(res)
+    }
+    else if(elem.dataset.type==="LIVE_old"){
+      const res=getBestOne(Number(elem.dataset.count),live_old)
+      showResult(res)
+    }
+    else if(elem.dataset.type==="pregame_old"){
+      const res=getBestOne(Number(elem.dataset.count),pregame_old)
       showResult(res)
     }
   })
