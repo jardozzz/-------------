@@ -1,0 +1,15 @@
+.leagues{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  gap:10;
+}
+.cluster_header{
+  margin-top:20px;
+  margin-bottom: 20px;
+  font-size:18px;
+}
+.ERROR_BLOCK{
+  margin:20px;
+  font-size:20px;
+}
