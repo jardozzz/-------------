@@ -3,15 +3,21 @@ import { Data as LiveData }  from "./LiveData.js";
 import { prematchData } from "./Prematch_new.js";
 import { pregame_old } from "./pregame_old.js";
 import { live_old } from "./lv_old.js";
+import { weighted_pregame } from "./pregame_weighted.js";
+import { pregame_old_weighted } from "./pregame_old_weighted.js";
+import { live_weighted } from "./live_weighted.js";
+import { live_weighted_old } from "./live_weighted_old.js";
 const elems=document.getElementsByClassName('count')
 console.log(elems)
+const weight=document.getElementById('NOT')
 Array.from(elems).forEach(function(elem) {
   elem.addEventListener('click',()=>{
+    if (weight.checked){
     if (elem.dataset.type==="LIVE"){
       const res=getBestOne(Number(elem.dataset.count),LiveData)
       showResult(res)
     }
-    else if(elem.dataset.type==="pregame"){
+    else if (elem.dataset.type==="pregame"){
       const res=getBestOne(Number(elem.dataset.count),prematchData)
       showResult(res)
     }
@@ -23,6 +29,25 @@ Array.from(elems).forEach(function(elem) {
       const res=getBestOne(Number(elem.dataset.count),pregame_old)
       showResult(res)
     }
+  }
+  else{
+    if (elem.dataset.type==="LIVE"){
+      const res=getBestOne(Number(elem.dataset.count),live_weighted)
+      showResult(res)
+    }
+    else if (elem.dataset.type==="pregame"){
+      const res=getBestOne(Number(elem.dataset.count),weighted_pregame)
+      showResult(res)
+    }
+    else if(elem.dataset.type==="LIVE_old"){
+      const res=getBestOne(Number(elem.dataset.count),live_weighted_old)
+      showResult(res)
+    }
+    else if(elem.dataset.type==="pregame_old"){
+      const res=getBestOne(Number(elem.dataset.count),pregame_old_weighted)
+      showResult(res)
+    }
+  }
   })
 })
 function showResult(data){
@@ -46,7 +71,7 @@ container.appendChild(cluster)
   heading.innerHTML=`Cluster number ${element.dataset.index}.Margin=${data.centers[Number(element.dataset.index)].avg.toFixed(3)}`
   const num=document.createElement('div')
   num.classList.add('cluster_header')
-  num.innerHTML=`NUMBER OF LEAGUES IN CLUSTER IS ${data.centers[Number(element.dataset.index)].num}`
+  num.innerHTML=`NUMBER OF LEAGUES IN CLUSTER IS ${data.centers[Number(element.dataset.index)].num_leagues}`
   element.appendChild(heading)
   element.appendChild(num)
   const tournaments=data.data.filter(elem=>elem.cluster===Number(element.dataset.index))

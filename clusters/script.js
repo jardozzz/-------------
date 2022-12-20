@@ -10,6 +10,7 @@ function initClusters(num,data){
 data.forEach(element=>{
   element.range=100
   element.ML=typeof(element.ML)==='number'?element.ML:Number(element.ML.replace(",","."))
+  element.Weight=typeof(element.Weight)==='number'?element.Weight:Number(element.Weight)
   if (Number(element.ML)>max) max=Number(element.ML)
   if (Number(element.ML)<min) min=Number(element.ML)
 })
@@ -39,6 +40,7 @@ for (let i=0;i<tries;i++){
   centers.forEach(elem=>{
     elem.num=0
     elem.acc=0
+    elem.num_leagues=0
   })
   data.forEach(element=>{
     element.range=Math.abs(element.ML-centers[element.cluster].avg)
@@ -49,8 +51,9 @@ if(Math.abs(element.ML-centers[j].avg)<element.range) {
 
 }
     }
-    centers[element.cluster].num+=1
-    centers[element.cluster].acc+=element.ML
+    centers[element.cluster].num+=element.Weight || 1
+    centers[element.cluster].acc+=element.ML*(element.Weight || 1)
+    centers[element.cluster].num_leagues+=1
     sumError+=element.range
   })
   centers.forEach(elem=>elem.avg=elem.acc/elem.num)
