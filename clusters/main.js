@@ -173,12 +173,12 @@ for (let j=0;j<midResult.data.length;j++ ){
   LeaguesResult[j][`Cluster${i}`]=midResult.data[j].cluster
 }
 for(let j=0;j<midResult.centers.length;j++){
-  centersResult.push({type:`${i}Clusters`,ML:midResult.centers[j].avg.ML || midResult.centers[j].avg,HB:midResult.centers[j].avg.HB,total:midResult.centers[j].avg.Total})
+  centersResult.push({type:`${i}Clusters`,ML:midResult.centers[j].avg.ML || midResult.centers[j].avg,HB:midResult.centers[j].avg.HB,total:midResult.centers[j].avg.Total,number:j})
 
 }
   }
   const LeagueHeaders=['Name','Cluster2','Cluster3','Cluster4','Cluster5','Cluster6','Cluster7','Cluster8']
-  const centersHeaders=['type','ML','HB','total']
+  const centersHeaders=['type','ML','HB','total','number']
 exportCSVFile(LeagueHeaders,LeaguesResult,'Leagues')
 exportCSVFile(centersHeaders,centersResult,'Cluster Centers')
 }
