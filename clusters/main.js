@@ -7,7 +7,7 @@ import { weighted_pregame } from "./pregame_weighted.js";
 import { pregame_old_weighted } from "./pregame_old_weighted.js";
 import { live_weighted } from "./live_weighted.js";
 import { live_weighted_old } from "./live_weighted_old.js";
-import { convert } from "../csvConverter.js";
+import { convert } from "./csvConverter.js";
 import { exportCSVFile,headers } from "./jsonToCSV.js";
 
 const elems=document.getElementsByClassName('count')
