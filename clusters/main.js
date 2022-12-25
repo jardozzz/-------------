@@ -138,7 +138,6 @@ let endData={}
            reader.onload=()=>{
 
             dataToClusterise=convert(reader.result)
-            console.log(dataToClusterise)
             resolve(endData)}
 
 
@@ -150,7 +149,6 @@ let endData={}
 return endData
 }
 function dragOverHandler(ev) {
-  console.log('File(s) in drop zone');
 
   // Prevent default behavior (Prevent file from being opened)
   ev.preventDefault();

@@ -87,7 +87,6 @@ else {
 if (arr[0].err>res.err) arr[0]=res
   }
 }
-console.log(arr[0])
   return arr[0]
 }
 
