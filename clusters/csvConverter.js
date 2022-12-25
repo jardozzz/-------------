@@ -12,7 +12,6 @@ export function convert(str){
       else if (j==="," && !flag) acc+=delimeter
       else acc+=j
     }
-    console.log(acc)
     let temp=acc.split(delimeter)
     for (let j=0;j<headers.length;j++){
       res[headers[j]]=temp[j]
