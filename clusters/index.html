@@ -8,11 +8,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="section">
+  <div class="wrapper">
+<input type="radio" name="regime" id="ESPORTS" checked>
+<label for="ESPORTS">ESPORTS</label>
+<input type="radio" name="regime" id="dropZone">
+<label for="dropZone">I HAVE MY FILE</label>
+<div class="drop_wrapper">
+<div class="drop" id="drop_zone">
+  drop here
+      </div>
+      <button class="count" data-type="pregame" data-count="2">2</button>
+    <button class="count" data-count="3" data-type="pregame">3</button>
+    <button class="count" data-count="4" data-type="pregame">4</button>
+    <button class="count" data-count="5" data-type="pregame">5</button>
+    <button class="count" data-count="6" data-type="pregame">6</button>
+    <button class="count" data-count="7" data-type="pregame">7</button>
+    </div>
+  <div class="section esports">
     <input type="radio" name="weight" id="NOT" checked>
     <label for="NOT">Not weighted</label>
     <input type="radio" name="weight" id="ARE">
     <label for="ARE">Weighted</label>
+    <input type="radio" name="weight" id="NATASHA">
+    <label for="NATASHA">NATASHA Style's Weighted(NOT WORKING)</label>
+
     <div class="pregame">
       <p>PREGAME</p>
     <button class="count" data-type="pregame" data-count="2">2</button>
@@ -50,10 +69,12 @@
 <button class="count" data-count="7" data-type="LIVE_old">7</button>
 </div>
   </div>
+  <button class="download" id="DOWNLOAD">DOWNLOAD RESULTS(full set of clusters for last data type)</button>
   <div class="ERROR_BLOCK"></div>
   <div class="leagues">
 
   </div>
+</div>
   <script type="module" src="main.js"></script>
 </body>
 </html>
